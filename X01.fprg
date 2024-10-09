@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="X01"/>
+        <attribute name="authors" value="Acer"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-09 04:04:50 PM"/>
+        <attribute name="created" value="QWNlcjtERVNLVE9QLTNVNzlNREU7MjAyNC0xMC0wOTswMzo0OToxNCBQTTsyNzA3"/>
+        <attribute name="edited" value="QWNlcjtERVNLVE9QLTNVNzlNREU7MjAyNC0xMC0wOTswNDowNDo1MCBQTTsxOzI4MDc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="harga, total, hargatermurah, totalakhir" type="Real" array="False" size=""/>
+            <input variable="harga"/>
+            <assign variable="total" expression="harga"/>
+            <assign variable="hargatermurah" expression="harga"/>
+            <while expression="harga!=0">
+                <if expression="hargatermurah&lt;harga">
+                    <then>
+                        <assign variable="hargatermurah" expression="hargatermurah"/>
+                    </then>
+                    <else>
+                        <assign variable="hargatermurah" expression="harga"/>
+                    </else>
+                </if>
+                <input variable="harga"/>
+                <assign variable="total" expression="total+harga"/>
+            </while>
+            <if expression="total&gt;=100">
+                <then>
+                    <assign variable="totalakhir" expression="total-hargatermurah"/>
+                </then>
+                <else>
+                    <assign variable="totalakhir" expression="total"/>
+                </else>
+            </if>
+            <output expression="ToFixed(totalakhir,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
